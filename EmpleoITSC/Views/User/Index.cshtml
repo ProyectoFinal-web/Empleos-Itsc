@@ -67,9 +67,9 @@
                 @Html.DisplayFor(modelItem => item.career)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "ViewInfoEdit", new { id = item.userId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.userId }) |
+                @Html.ActionLink("Delete", "ViewInfoDelete", new { id = item.userId })
             </td>
         </tr>
 }

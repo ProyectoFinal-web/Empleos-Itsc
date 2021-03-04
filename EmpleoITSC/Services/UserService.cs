@@ -1,8 +1,10 @@
 ﻿using EmpleoITSC.Helper;
 using EmpleoITSC.Models;
+using Nancy.Json;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace EmpleoITSC.Services
@@ -13,24 +15,24 @@ namespace EmpleoITSC.Services
 
         public async Task<List<USERS>> GetAll()
         {
-            List<USERS> graduates = new List<USERS>();
+            List<USERS> user = new List<USERS>();
             HttpClient client = _api.Initial();
             HttpResponseMessage res = await client.GetAsync("api/USER");
             if (res.IsSuccessStatusCode)
             {
                 var results = res.Content.ReadAsStringAsync().Result;
-                graduates = JsonConvert.DeserializeObject<List<USERS>>(results);
+                user = JsonConvert.DeserializeObject<List<USERS>>(results);
             }
 
-            return graduates;
+            return user;
         }
-        /*
-        public HttpResponseMessage Create(GRADUATEPLUS student)
+        
+        public HttpResponseMessage Create(USERS user)
         {
             HttpClient client = _api.Initial();
 
             // HTTP POST
-            var postTask = client.PostAsync("api/GRADUATEPLUS", new StringContent(JsonConvert.SerializeObject(student), Encoding.UTF8, "application/json"));
+            var postTask = client.PostAsync("api/USER", new StringContent(JsonConvert.SerializeObject(user), Encoding.UTF8, "application/json"));
             postTask.Wait();
 
             var result = postTask.Result;
@@ -38,32 +40,33 @@ namespace EmpleoITSC.Services
             return result;
         }
 
-        public async Task<GRADUATEPLUS> GetInfo(int id)
+        
+        public async Task<USERS> GetInfo(int id)
         {
-            GRADUATEPLUS employee = new GRADUATEPLUS();
+            USERS user = new USERS();
             var httpClient = new HttpClient();
             string apiResponse = "";
 
             var request = new HttpRequestMessage
-              (HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/GRADUATEPLUS/{id}");
+              (HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/USER/{id}");
 
             var response = await httpClient.SendAsync(request);
             if (response.IsSuccessStatusCode)
             {
                 apiResponse = await response.Content.ReadAsStringAsync();
-                employee = JsonConvert.DeserializeObject<GRADUATEPLUS>(apiResponse);
+                user = JsonConvert.DeserializeObject<USERS>(apiResponse);
             }
 
-            return employee;
+            return user;
         }
 
-        public HttpResponseMessage Update(GRADUATEPLUS employee)
+        public HttpResponseMessage Update(USERS user)
         {
 
             var httpClient = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Put, $"http://api-empleo.azurewebsites.net/api/GRADUATEPLUS/{employee.gradId}")
+            var request = new HttpRequestMessage(HttpMethod.Put, $"http://api-empleo.azurewebsites.net/api/USER/{user.userId}")
             {
-                Content = new StringContent(new JavaScriptSerializer().Serialize(employee), Encoding.UTF8, "application/json")
+                Content = new StringContent(new JavaScriptSerializer().Serialize(user), Encoding.UTF8, "application/json")
             };
 
             var response = httpClient.SendAsync(request);
@@ -74,16 +77,17 @@ namespace EmpleoITSC.Services
             return result;
         }
 
+        
         public HttpResponseMessage Delete(int id)
         {
             HttpClient client = _api.Initial();
-            var deleteTask = client.DeleteAsync($"api/GRADUATEPLUS/{id}");
+            var deleteTask = client.DeleteAsync($"api/USER/{id}");
             deleteTask.Wait();
 
             var result = deleteTask.Result;
 
             return result;
         }
-        */
+       
     }
 }
