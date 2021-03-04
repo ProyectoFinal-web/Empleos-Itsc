@@ -1,0 +1,57 @@
+﻿@model EmpleoITSC.Models.GRADUATEPLUS
+
+@{
+    ViewData["Title"] = "ViewInfoEdit";
+}
+
+<h1>ViewInfoEdit</h1>
+
+<h4>GRADUATEPLUS</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-route-id="@Model">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="descriptionGrad" class="control-label"></label>
+                <input asp-for="descriptionGrad" class="form-control" />
+                <span asp-validation-for="descriptionGrad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="career" class="control-label"></label>
+                <input asp-for="career" class="form-control" />
+                <span asp-validation-for="career" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="photo" class="control-label"></label>
+                <input asp-for="photo" class="form-control" />
+                <span asp-validation-for="photo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+            @*Siempre poner de ultimo y que no se vea*@
+            <div class="form-group" style="visibility:hidden">
+                <label asp-for="gradId" class="control-label"></label>
+                <input asp-for="gradId" class="form-control" />
+                <span asp-validation-for="gradId" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
