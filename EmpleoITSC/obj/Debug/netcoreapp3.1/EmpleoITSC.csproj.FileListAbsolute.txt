@@ -250,3 +250,9 @@ C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\ne
 C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\User\Create.cshtml.g.cs
 C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\User\ViewInfoEdit.cshtml.g.cs
 C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\User\ViewInfoDelete.cshtml.g.cs
+C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\MailBox\Index.cshtml.g.cs
+C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\MailBox\ViewInfoDelete.cshtml.g.cs
+C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\Job\Index.cshtml.g.cs
+C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\Job\Create.cshtml.g.cs
+C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\Job\ViewInfoEdit.cshtml.g.cs
+C:\Users\neifi\OneDrive\Escritorio\proyecto\Empleos-Itsc\EmpleoITSC\obj\Debug\netcoreapp3.1\Razor\Views\Job\ViewInfoDelete.cshtml.g.cs

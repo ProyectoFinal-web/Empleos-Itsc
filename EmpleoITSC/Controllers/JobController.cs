@@ -8,15 +8,13 @@ using System.Threading.Tasks;
 
 namespace EmpleoITSC.Controllers
 {
-    public class UserController : Controller
+    public class JobController : Controller
     {
-        UserService userService = new UserService();
-        CareersService carrersService = new CareersService();
-        // Listar Objectos
+        JobService jobService = new JobService();
         public async Task<IActionResult> Index()
         {
-            List<USERS> user = await userService.GetAll();
-            return View(user);
+            List<JOB> empleo = await jobService.GetAll();
+            return View(empleo);
         }
 
         // Crear Objecto
@@ -26,31 +24,22 @@ namespace EmpleoITSC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(USERS user)
+        public ActionResult Create(JOB empleo)
         {
-            var result = userService.Create(user);
+            var result = jobService.Create(empleo);
             if (result.IsSuccessStatusCode) return RedirectToAction("Index");
             return View();
         }
 
-        /*
-        public async Task<IActionResult> Details(int id)
-        {
-            USERS user = await userService.GetInfo(id);
-            return View(user);
-        }*/
-
-
-        //editar objeto
         public async Task<IActionResult> ViewInfoEdit(int id)
         {
-            USERS user = await userService.GetInfo(id);
-            return View(user);
+            JOB empleo = await jobService.GetInfo(id);
+            return View(empleo);
         }
 
-        public ActionResult Edit(USERS user)
+        public ActionResult Edit(JOB empleo)
         {
-            var result = userService.Update(user);
+            var result = jobService.Update(empleo);
             if (result.IsSuccessStatusCode) return RedirectToAction("Index");
 
             return View();
@@ -59,18 +48,17 @@ namespace EmpleoITSC.Controllers
         // Eliminar Objeto
         public async Task<ActionResult> ViewInfoDelete(int id)
         {
-            USERS user = await userService.GetInfo(id);
-            return View(user);
+            JOB empleo = await jobService.GetInfo(id);
+            return View(empleo);
         }
 
         public ActionResult Delete(int id)
         {
-            var result = userService.Delete(id);
+            var result = jobService.Delete(id);
             if (result.IsSuccessStatusCode)
                 return RedirectToAction("Index");
 
             return View();
         }
-     
     }
 }

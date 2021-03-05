@@ -41,5 +41,7 @@ namespace EmpleoITSC.Models
 
         [StringLength(100)]
         public string modality { get; set; }
+
+        public string career { get; set; }
     }
 }

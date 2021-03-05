@@ -1,0 +1,95 @@
+﻿@model IEnumerable<EmpleoITSC.Models.JOB>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.jobId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descriptionJob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.requirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dateStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.companyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.companyAdress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.schedule)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.contractJob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.career)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.jobId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descriptionJob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.requirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dateStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.companyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.companyAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.schedule)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contractJob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.career)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "ViewInfoEdit", new { id = item.jobId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.jobId }) |
+                @Html.ActionLink("Delete", "ViewInfoDelete", new { id = item.jobId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
