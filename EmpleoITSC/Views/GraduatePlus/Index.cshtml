@@ -46,7 +46,8 @@
                 @Html.DisplayFor(modelItem => item.career)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.photo)
+                @*@Html.DisplayFor(modelItem => item.photo)*@
+                <img class="imgarticulo" src="@Url.Action("convertirImagen","GraduatePlus",new { codigo = item.gradId, img = 1 })" />
             </td>
             <td>
                 @Html.ActionLink("Edit", "ViewInfoEdit", new { id = item.gradId }) |

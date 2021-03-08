@@ -3,57 +3,34 @@
 @{
     ViewData["Title"] = "Index";
 }
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Inicio usado como ejemplo</h1>
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.gradId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.descriptionGrad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.career)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.photo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.gradId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descriptionGrad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.career)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.photo)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.gradId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.gradId }) |
-                @Html.ActionLink("Delete", "ViewInfoDelete", new { id=item.gradId })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>*@
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/InicioAdm.css">
+</head>
+<body>
+
+
+    <section class="banner" id="banner">
+        <div class="content">
+            <h2>Bienvienidos a la Administracion</h2>
+            <p>
+                Mision de orientar la formación de profesionales, del nivel técnico superior, con las competencias necesarias para responder con eficiencia y calidad a las necesidades del país.
+            </p>
+            <a asp-area="" asp-controller="Job" asp-action="Index" class="btn">Publicar Vacante</a>
+        </div>
+    </section>
+    <section id="presentacion">
+        <img class="presentacion" src="~/img/banner-presentacion.png">
+        <img class="presentacion2" src="~/img/banner-presentacion2.png">
+    </section>
+
+</body>
+</html>

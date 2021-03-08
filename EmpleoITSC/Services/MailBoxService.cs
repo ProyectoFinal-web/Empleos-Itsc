@@ -35,7 +35,8 @@ namespace EmpleoITSC.Services
             string apiResponse = "";
 
             var request = new HttpRequestMessage
-              (HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/CAREERS/{id}");
+              //(HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/CAREERS/{id}");
+              (HttpMethod.Get, $"{_api.localUrl}/api/CAREERS/{id}");
 
             var response = await httpClient.SendAsync(request);
             if (response.IsSuccessStatusCode)

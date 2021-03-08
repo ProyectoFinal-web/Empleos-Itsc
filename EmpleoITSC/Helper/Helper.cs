@@ -8,10 +8,12 @@ namespace EmpleoITSC.Helper
 {
     public class EmploymentAPI
     {
+        public string localUrl { get; set; } = "https://localhost:44371";
         public  HttpClient Initial()
         {
             var client = new HttpClient();
-            client.BaseAddress = new Uri("http://api-empleo.azurewebsites.net/");
+            // client.BaseAddress = new Uri("http://api-empleo.azurewebsites.net/");
+            client.BaseAddress = new Uri("https://localhost:44371/");
             return client;
         }
     }

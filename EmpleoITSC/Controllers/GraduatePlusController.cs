@@ -1,8 +1,10 @@
 ﻿using EmpleoITSC.Models;
 using EmpleoITSC.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -33,9 +35,9 @@ namespace EmpleoITSC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(GRADUATEPLUS student)
+        public ActionResult Create(GRADUATEPLUS student, IFormFile upload)
         {
-            var result = graduateService.Create(student);
+            var result = graduateService.Create(student, upload);
             if (result.IsSuccessStatusCode) return RedirectToAction("Index");
             return View();
         }
@@ -71,8 +73,14 @@ namespace EmpleoITSC.Controllers
             return View();
         }
 
+        public async Task<ActionResult> convertirImagen(int codigo)
+        {
+            GRADUATEPLUS student = await graduateService.GetInfo(codigo);
 
+            return File(student.photo, "Imagenes/jpg");
 
+        }
 
     }
+
 }

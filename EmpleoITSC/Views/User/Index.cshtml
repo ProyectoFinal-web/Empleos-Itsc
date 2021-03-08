@@ -1,26 +1,18 @@
 ﻿@model IEnumerable<EmpleoITSC.Models.USERS>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Usuarios";
+    var estudiante = "EST";
 }
 
-<h1>Index</h1>
-
+<h1>Usuarios</h1>
+<br />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Crear Usuario</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.userId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.userName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.userPass)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.name)
             </th>
@@ -28,13 +20,13 @@
                 @Html.DisplayNameFor(model => model.lastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.cv)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.rol)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.career)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cv)
             </th>
             <th></th>
         </tr>
@@ -43,22 +35,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.userId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.userName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.userPass)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cv)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.rol)
@@ -67,11 +47,23 @@
                 @Html.DisplayFor(modelItem => item.career)
             </td>
             <td>
-                @Html.ActionLink("Edit", "ViewInfoEdit", new { id = item.userId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.userId }) |
-                @Html.ActionLink("Delete", "ViewInfoDelete", new { id = item.userId })
+                @if (item.rol == estudiante)
+                {
+                    @*@Html.DisplayFor(modelItem => item.cv)*@
+                    <a class="btn btn-secondary" href="@Url.Action("descargar","User",new { codigo = item.userId})"> Descargar CV </a>
+                }
+
+            </td>
+            <td>
+                <a class="btn btn-warning" href="@Url.Action("ViewInfoEdit","User",new { id = item.userId})"> Editar </a> |
+                <a class="btn btn-danger" href="@Url.Action("Delete","User",new { id = item.userId})"> Eliminar </a>
+                @*<a class="btn btn-danger" href="@Url.Action("ViewInfoDelete","User",new { id = item.userId})"> Eliminar </a>*@
+                @*@Html.ActionLink("Edit", "ViewInfoEdit", new { id = item.userId })  |
+        @Html.ActionLink("Delete", "ViewInfoDelete", new { id = item.userId })*@
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+

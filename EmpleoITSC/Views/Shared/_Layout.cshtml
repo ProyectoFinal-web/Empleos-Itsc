@@ -1,57 +1,111 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - EmpleoITSC</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/LoyoutAdm.css">
+    <link rel="icon" href="~/favicon.png" type="image/x-icon" />
 </head>
+
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">EmpleoITSC</a>
+
+
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/ITSC-logo.png">
+                    <span>Instituto Técnico Superior Comunitario</span>
+                </a>
+
+                <div class="toggle" onclick="toggleMenu()">
+                    <img src="~/img/menu.png">
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="GraduatePlus" asp-action="Index">Estudiantes Destacados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">Usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="MailBox" asp-action="Index">Sugerencias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Index">Publicar Vacante</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
+
+    <!---Sidebar Menu-->
+
+    <div class="navigation">
+        <ul>
+            <li>
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="title">Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="User" asp-action="Index">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="title">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Job" asp-action="Index">
+                    <span class="icon"><i class="fas fa-edit"></i></span>
+                    <span class="title">Publicar Vacante</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="ApplyJob" asp-action="Index">
+                    <span class="icon"><i class="fas fa-id-badge"></i></span>
+                    <span class="title">Vacantes aplicadas</span>
+                </a>
+            <li>
+                <a asp-area="" asp-controller="GraduatePlus" asp-action="Index">
+                    <span class="icon"><i class="fas fa-star"></i></span>
+                    <span class="title">Estudiantes Destacados</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="MailBox" asp-action="Index">
+                    <span class="icon"><i class="fas fa-question-circle"></i></span>
+                    <span class="title">Sugerencias</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="title">Cerrar la sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function toggleMenu() {
+            let navigation = document.querySelector('.navigation');
+            let toggle = document.querySelector('.toggle');
+            navigation.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - EmpleoITSC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/siteConfig.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

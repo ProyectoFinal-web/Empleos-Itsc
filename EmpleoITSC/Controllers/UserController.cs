@@ -1,8 +1,10 @@
 ﻿using EmpleoITSC.Models;
 using EmpleoITSC.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,15 +22,17 @@ namespace EmpleoITSC.Controllers
         }
 
         // Crear Objecto
-        public ActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            ViewBag.careers = await carreras();
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(USERS user)
+        public async Task<IActionResult> Create(USERS user, IFormFile upload)
         {
-            var result = userService.Create(user);
+            ViewBag.careers = await carreras();
+            var result = userService.Create(user, upload);
             if (result.IsSuccessStatusCode) return RedirectToAction("Index");
             return View();
         }
@@ -44,6 +48,7 @@ namespace EmpleoITSC.Controllers
         //editar objeto
         public async Task<IActionResult> ViewInfoEdit(int id)
         {
+            ViewBag.careers = await carreras();
             USERS user = await userService.GetInfo(id);
             return View(user);
         }
@@ -57,13 +62,7 @@ namespace EmpleoITSC.Controllers
         }
 
         // Eliminar Objeto
-        public async Task<ActionResult> ViewInfoDelete(int id)
-        {
-            USERS user = await userService.GetInfo(id);
-            return View(user);
-        }
-
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             var result = userService.Delete(id);
             if (result.IsSuccessStatusCode)
@@ -71,6 +70,26 @@ namespace EmpleoITSC.Controllers
 
             return View();
         }
-     
+
+        public async Task<FileResult> descargar(int codigo)
+        {
+            USERS student = await userService.GetInfo(codigo);
+
+            return File(student.cv, "application/vnd.openxmlformats-officedocument.wordprocessingml.document", student.cvName);
+
+        }
+
+        public async Task<List<string>> carreras()
+        {
+            var carreras = new List<string>();
+            var lista = await carrersService.GetAll();
+            foreach(var career in lista)
+            {
+                carreras.Add(career.career);
+            }
+
+            return carreras;
+        }
+
     }
 }

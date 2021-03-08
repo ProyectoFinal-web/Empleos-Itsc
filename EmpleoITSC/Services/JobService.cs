@@ -51,7 +51,8 @@ namespace EmpleoITSC.Services
             string apiResponse = "";
 
             var request = new HttpRequestMessage
-              (HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/JOB/{id}");
+              //(HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/JOB/{id}");
+              (HttpMethod.Get, $"{_api.localUrl}/api/JOB/{id}");
 
             var response = await httpClient.SendAsync(request);
             if (response.IsSuccessStatusCode)
@@ -67,7 +68,9 @@ namespace EmpleoITSC.Services
         {
 
             var httpClient = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Put, $"http://api-empleo.azurewebsites.net/api/JOB/{empleo.jobId}")
+            var request = new HttpRequestMessage
+                //(HttpMethod.Put, $"http://api-empleo.azurewebsites.net/api/JOB/{empleo.jobId}")
+                (HttpMethod.Put, $"{_api.localUrl}/api/JOB/{empleo.jobId}")
             {
                 Content = new StringContent(new JavaScriptSerializer().Serialize(empleo), Encoding.UTF8, "application/json")
             };

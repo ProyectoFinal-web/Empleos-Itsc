@@ -1,62 +1,70 @@
 ﻿@model EmpleoITSC.Models.USERS
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Usuario";
 }
 
-<h1>Create</h1>
+<h1>Crear un Usuario</h1>
 
-<h4>USERS</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" asp-controller="User" enctype="multipart/form-data" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="userName" class="control-label"></label>
+                <label asp-for="rol" class="control-label"></label>
+                <select asp-for="rol" class="form-control" id="rol" onchange="showInp()">
+                    <option value="">Selecciona el tipo de usuaio</option>
+                    <option value="ADM">Administrador</option>
+                    <option value="EST">Estudiante</option>
+                </select>
+                <span asp-validation-for="rol" class="text-danger"></span>
+            </div>
+            <div class="form-group" id="userName" style="display: none">
+                <label asp-for="userName" class="control-label" id="title"></label>
                 <input asp-for="userName" class="form-control" />
                 <span asp-validation-for="userName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="userPass" style="display: none">
                 <label asp-for="userPass" class="control-label"></label>
-                <input asp-for="userPass" class="form-control" />
+                <input asp-for="userPass" class="form-control" id="pass"/>
                 <span asp-validation-for="userPass" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="name" style="display: none">
                 <label asp-for="name" class="control-label"></label>
                 <input asp-for="name" class="form-control" />
                 <span asp-validation-for="name" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="lastName" style="display: none">
                 <label asp-for="lastName" class="control-label"></label>
                 <input asp-for="lastName" class="form-control" />
                 <span asp-validation-for="lastName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="cv" class="control-label"></label>
-                <input asp-for="cv" class="form-control" />
-                <span asp-validation-for="cv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="rol" class="control-label"></label>
-                <input asp-for="rol" class="form-control" />
-                <span asp-validation-for="rol" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+
+            <div class="form-group" id="career" style="display: none">
                 <label asp-for="career" class="control-label"></label>
-                <input asp-for="career" class="form-control" />
+                <select asp-for="career" class="form-control" asp-items="new SelectList(ViewBag.careers)">
+                    <option value="">Selecciona una carrera</option>
+                </select>
                 <span asp-validation-for="career" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            @*<div class="form-group" id="cv" style="display: none">
+                <b>Insertar tu Curriculum</b>
+                <input type="file" class="form-control-file" id="CV" name="upload" />
+                <span asp-validation-for="cv" class="text-danger"></span>
+            </div>*@
+            <br />
+            <div class="form-group" id="submit" style="display: none">
+                <input type="submit" value="Crear" class="btn btn-outline-primary" />
+                <a class="btn btn-outline-danger" asp-action="Index">Cancelar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+@*<div>
+    <a class="btn btn-outline-danger" asp-action="Index">Cancelar</a>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

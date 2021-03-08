@@ -1,10 +1,12 @@
 ﻿using EmpleoITSC.Helper;
 using EmpleoITSC.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nancy.Json;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -44,10 +46,12 @@ namespace EmpleoITSC.Services
         //    return graduates;
         //}
 
-        public HttpResponseMessage Create(GRADUATEPLUS student)
+        public HttpResponseMessage Create(GRADUATEPLUS student, IFormFile formFile)
         {
             HttpClient client = _api.Initial();
+            var bytes = GetBytes(formFile);
 
+            student.photo = bytes;
             // HTTP POST
             var postTask = client.PostAsync("api/GRADUATEPLUS", new StringContent(JsonConvert.SerializeObject(student), Encoding.UTF8, "application/json"));
             postTask.Wait();
@@ -64,7 +68,8 @@ namespace EmpleoITSC.Services
             string apiResponse = "";
 
             var request = new HttpRequestMessage
-              (HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/GRADUATEPLUS/{id}");
+              //(HttpMethod.Get, $"http://api-empleo.azurewebsites.net/api/GRADUATEPLUS/{id}");
+              (HttpMethod.Get, $"{_api.localUrl}/api/GRADUATEPLUS/{id}");
 
             var response = await httpClient.SendAsync(request);
             if (response.IsSuccessStatusCode)
@@ -80,7 +85,9 @@ namespace EmpleoITSC.Services
         {
             
             var httpClient = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Put, $"http://api-empleo.azurewebsites.net/api/GRADUATEPLUS/{employee.gradId}")
+            var request = new HttpRequestMessage
+                //(HttpMethod.Put, $"http://api-empleo.azurewebsites.net/api/GRADUATEPLUS/{employee.gradId}")
+                (HttpMethod.Put, $"{_api.localUrl}/api/GRADUATEPLUS/{employee.gradId}")
             {
                 Content = new StringContent(new JavaScriptSerializer().Serialize(employee), Encoding.UTF8, "application/json")
             };
@@ -102,6 +109,15 @@ namespace EmpleoITSC.Services
             var result = deleteTask.Result;
 
             return result;
+        }
+
+        public byte[] GetBytes(IFormFile formFile)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                 formFile.CopyTo(memoryStream);
+                return memoryStream.ToArray();
+            }
         }
 
 

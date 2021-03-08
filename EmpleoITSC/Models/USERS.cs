@@ -10,28 +10,39 @@ namespace EmpleoITSC.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int userId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo {0} es necesario")]
         [StringLength(50)]
+        [Display(Name="Matricula")]
         public string userName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo {0} es necesario")]
         [StringLength(50)]
+        [Display(Name = "Contraseña")]
         public string userPass { get; set; }
 
+        [Required(ErrorMessage = "El campo {0} es necesario")]
         [StringLength(100)]
+        [Display(Name = "Nombre")]
         public string name { get; set; }
 
+        [Required(ErrorMessage = "El campo {0} es necesario")]
         [StringLength(100)]
+        [Display(Name = "Apellido")]
         public string lastName { get; set; }
 
-        public string cv { get; set; }
+        [Display(Name = "Curriculum")]
+        public byte[] cv { get; set; }
 
         [Required]
         [StringLength(3)]
+        [Display(Name = "Rol")]
         public string rol { get; set; }
 
         [StringLength(500)]
+        [Display(Name = "Carrera")]
         public string career { get; set; }
+
+        public string cvName { get; set; } 
 
     }
 }

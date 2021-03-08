@@ -21,6 +21,6 @@ namespace EmpleoITSC.Models
         [StringLength(500)]
         public string career { get; set; }
 
-        public string photo { get; set; }
+        public byte[] photo { get; set; }
     }
 }
