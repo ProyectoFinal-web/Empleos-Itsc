@@ -1,0 +1,92 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/GraduateplusStyles/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300:400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Graduados</title>
+</head>
+<body>
+
+    <section id="graduate-form">
+
+        <h1 id="title">Estudiantes destacados</h1>
+        <br />
+        <p>
+            <a id="plus" class="btn btn-primary" asp-action="Create"><i class="fas fa-user-plus"></i></a>
+        </p>
+
+        <form class="form1" asp-action="Index" method="get">
+            <p>
+                <input type="text" name="word" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+                <div id="listado">
+                    <a asp-action="Index">Estudiantes Destacados</a>
+                </div>
+            </p>
+        </form>
+
+
+        @foreach (var item in Model.GradutePlus)
+        {
+
+    <div id="contenedor-graduate">
+        <img class="imgarticulo" src="@Url.Action("convertirImagen","GraduatePlus",new { codigo = item.gradId, img = 1 })">
+        <h3> @Html.DisplayFor(modelItem => item.name)</h3>
+        <pre> @Html.DisplayFor(modelItem => item.descriptionGrad)</pre>
+       
+        <h4>@Html.DisplayFor(modelItem => item.career)</h4>
+
+
+
+        <a class="btn btn-info" href="@Url.Action("ViewInfoEdit","GraduatePlus",new { id = item.gradId})">
+            <i class="fas fa-pen-square"></i>
+        </a>
+        @*<a class="btn btn-primary" href="@Url.Action("Details","GraduatePlus",new { id = item.gradId})>
+            @Html.ActionLink("Details", "Details", new { id = item.gradId })
+        </a>*@
+        
+        <a id="deleteItem" class="btn btn-danger" class="deleteItem" data-target="#basicModal" data-toggle="modal" data-path="@Url.Action("Delete", "GraduatePlus", new { id = item.gradId })" >
+            <i class="fas fa-trash-alt"></i>
+        </a>
+    </div>
+
+            <div class="modal" id="basicModal" tabindex="1" aria-hidden="true" style="display:none">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" value="delete" aria-hidden="true"></button>
+                            <h4 style="position:center" class="modal-title">Delete Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                            ¿Desea eliminar este usuario?
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" type="button" class="btn btn-secondary">Cancelar</button>
+                            <a id="btnContinueToDelete" type="button" value="delete" class="btn btn-danger" href="@Url.Action("Delete","GraduatePlus",new { id = item.gradId})">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </section>
+
+    <div id="paginacion">
+        <p>
+            @{Html.RenderPartial("_paginador", Model);}
+        </p>
+    </div>
+
+</body>
+</html>

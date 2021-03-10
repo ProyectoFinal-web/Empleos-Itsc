@@ -1,0 +1,80 @@
+﻿@model EmpleoITSC.Models.GRADUATEPLUS
+
+@{
+    ViewData["Title"] = "ViewInfoEdit";
+}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/GraduateplusStyles/Edit.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300:400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>editar estudiante destacado</title>
+</head>
+
+<body>
+    <div class="row">
+        <h4>Editar Estudiante Destacado</h4>
+        <hr />
+
+        <div class="col-md-4">
+            <form id="form-edit" asp-action="Edit" asp-route-id="@Model" enctype="multipart/form-data" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group" id="name">
+                    <label asp-for="name" class="control-label"></label>
+                    <input asp-for="name" class="form-control" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" id="descriptionGrap">
+                    <label asp-for="descriptionGrad" class="control-label"></label>
+                    <textarea asp-for="descriptionGrad" class="form-control"></textarea>
+                    <span asp-validation-for="descriptionGrad" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" id="career">
+                    <label asp-for="career" class="control-label"></label>
+                    <select id="carrera" asp-for="career" class="form-control" asp-items="new SelectList(ViewBag.careers)">
+                        <option value="">Selecciona una carrera</option>
+                    </select>
+                    <span asp-validation-for="career" class="text-danger"></span>
+                </div>
+
+                <div id="foto" class="form-group">
+                    <b>Adjunta una foto</b>
+                    <input type="file" class="form-control" id="IMAGEN" name="upload" />
+                </div>
+
+                <div id="botones" class="form-group">
+                    <input type="submit" value="Guardar" class="btn btn-outline-primary" />
+                    <a id="btn-cancelar" class="btn btn-outline-danger" asp-action="Index">Cancelar</a>
+                </div>
+
+                
+
+                @*Siempre poner de ultimo y que no se vea*@
+                <div class="form-group" style="visibility:hidden">
+                    <label asp-for="gradId" class="control-label"></label>
+                    <input asp-for="gradId" class="form-control" />
+                    <span asp-validation-for="gradId" class="text-danger"></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</body>
+</html>

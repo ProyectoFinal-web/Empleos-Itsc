@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    line-height: 1.5;
+}
+
+h1{
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.login-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1099;
+    background: url(../img/imgLogin/fondo-login.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login-popup .box{
+    background-color:white;
+    width: 750px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50% ,-50%);
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 1px 1px 2px rgb(224, 223, 223);
+}
+
+.login-popup .box .img-area{
+ flex: 0 0 50%;
+ max-width: 50%;
+ background: rgb(236, 233, 233);
+ position: relative;
+ overflow: hidden;
+
+}
+
+.login-popup .box .img-area .img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70%;
+    margin-left: 60px;
+    margin-top: 63px;
+    height: 70%;
+    background-image: url(../img/imgLogin/cover-login.png);
+    background-size: cover;
+    background-position: center;
+    animation: zoomInOut 7s linear infinite;
+   
+}
+
+@keyframes zoomInOut{
+    0%,100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
+
+.login-popup .box .form{
+    flex:0 0 50%;
+    max-width: 50%;
+    padding: 40px 30px;
+}
+
+.login-popup .box .form h1{
+    color: #000;
+    font-size: 30px;
+    margin: 0 0 30px;
+    border-bottom: 2px solid rgb(168, 5, 5);
+}
+.login-popup .box .form .form-control{
+    height: 45px;
+    margin-bottom: 30px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #cccc;
+    font-size: 15px;
+    color: #000000;
+    outline: none;
+    transition: 1s;
+}
+
+.login-popup .box .form .form-control:focus{
+    border-bottom: 2px solid rgb(168, 5, 5);
+}
+.login-popup .box .form label{
+    font-size: 15px;
+    color: #555555;
+}
+.login-popup .box .form .btn{
+
+    width: 100%;
+    background-color: rgb(211, 72, 72);
+    margin-top: 40px;
+    height: 45px;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.login-popup .box .form .btn:hover{
+   outline: none;
+   background: linear-gradient(to right , rgb(151, 7, 7) , rgb(201, 46, 46));
+}

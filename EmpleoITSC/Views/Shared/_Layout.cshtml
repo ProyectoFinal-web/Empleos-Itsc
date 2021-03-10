@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EmpleoITSC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/LoyoutAdm.css">
+    <link rel="icon" href="~/favicon.png" type="image/x-icon" />
+</head>
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow fixed-top">
+            <div class="container">
+
+
+                <a class="navbar-brand" asp-area="" asp-controller="HomeAdmin" asp-action="Index">
+                    <img src="~/img/ITSC-logo.png">
+                    <span>Instituto Técnico Superior Comunitario</span>
+                </a>
+
+                <div class="toggle" onclick="toggleMenu()">
+                    <img src="~/img/menu.png">
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!---Sidebar Menu-->
+
+    <div class="navigation">
+        <ul>
+            <li>
+                <a asp-area="" asp-controller="HomeAdmin" asp-action="Index">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="title">Inicio</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="User" asp-action="Index">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="title">Usuarios</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="Job" asp-action="Index">
+                    <span class="icon"><i class="fas fa-edit"></i></span>
+                    <span class="title">Vacantes</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="ApplyJob" asp-action="Index">
+                    <span class="icon"><i class="fas fa-id-badge"></i></span>
+                    <span class="title">Vacantes Aplicadas</span>
+                </a>
+            <li>
+                <a asp-area="" asp-controller="GraduatePlus" asp-action="Index">
+                    <span class="icon"><i class="fas fa-star"></i></span>
+                    <span class="title">Estudiantes Destacados</span>
+                </a>
+            </li>
+            <li>
+                <a asp-area="" asp-controller="MailBox" asp-action="Index">
+                    <span class="icon"><i class="fas fa-question-circle"></i></span>
+                    <span class="title">Sugerencias</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                    <span class="title">Cerrar la sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        function toggleMenu() {
+            let navigation = document.querySelector('.navigation');
+            let toggle = document.querySelector('.toggle');
+            navigation.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

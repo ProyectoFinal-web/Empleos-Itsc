@@ -1,0 +1,139 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+}
+
+
+
+h1 {
+    
+}
+
+#form {
+    padding: 19px 25px;
+    width: 124%;
+    min-height: 80vh;
+    box-shadow: 2px 3px 8px grey;
+    border-radius: 11px;
+    margin-left: -98px;
+    margin-top: 103px;
+}
+
+.form1 {
+    float: right;
+    width: 455px;
+    height: 45px;
+    margin-right: -4px;
+    margin-top: -54px;
+}
+
+    .form1 p input[type="text"] {
+        width: 70%;
+        height: 26px;
+        border-radius: 2px;
+        background: rgb(245, 245, 245);
+        box-shadow: 1px 1px 4px grey;
+        outline: none;
+        border: none;
+        border-color: gray;
+    }
+
+    .form1 p input[type="text"]:focus {
+        box-shadow: 1px 1px 4px grey;
+        background: white;
+    }
+
+    .form1 p input[type="submit"] {
+        margin-left:5px;
+    }
+
+
+    /*perfil de user*/
+
+#contenedor {
+    width: 76%;
+    min-height: 20vh;
+    margin-left: 126px;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+
+    #contenedor .perfil {
+        padding: 11px 27px;
+        width: 100%;
+        height: 130px;
+    }
+        #contenedor .perfil .foto-perfil {
+            width: 90px;
+            height: 90px;
+        }
+
+        #contenedor .perfil h4 {
+            display: inline-block;
+            font-size:25px;
+            font-weight:700;
+        }
+        #contenedor .perfil .datos {
+            position: absolute;
+            width: 28%;
+            height: 27px;
+            margin-left: 94px;
+            margin-top: -20px;
+        }
+        #contenedor .perfil h3 {
+            display: inline-block;
+            color: #2c16f0;
+            padding: 5px;
+            font-size: 15px;
+        }
+
+        #contenedor .perfil button {
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 80px;
+            float: right;
+            width: 50px;
+            height: 32px;
+        }
+
+       #contenedor .perfil button i {
+                width: 10px;
+                height: 10px;
+                margin-top: -5px;
+                margin-right: 12px;
+                font-size: 25px;
+                color: white;
+       }
+
+#paginacion {
+    position: absolute;
+    width: 11%;
+    height: 46px;
+    margin-top: 1px;
+    margin-left: 1128px;
+}
+
+#listado {
+    position: absolute;
+    width: 11%;
+    height: 41px;
+    float: left;
+    margin-top: 20px;
+    margin-left: -80px;
+}
+
+.navigation {
+    position: fixed;
+    margin-top: -7px;
+    width: 60px;
+    height: 100vh;
+}

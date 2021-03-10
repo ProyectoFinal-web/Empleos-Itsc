@@ -1,0 +1,55 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #EFEFEF;
+}
+
+
+
+h1 {
+}
+
+#form-edit {
+    padding: 19px 25px;
+    width: 270%;
+    /* box-shadow: 0px 0px 0px grey; */
+    margin-left: -230px;
+    margin-top: 110px;
+    background: white;
+}
+
+    #form-edit #name {
+        width: 400px;
+    }
+
+    #form-edit #career {
+        width: 580px;
+    }
+
+    #form-edit #descriptionGrap textarea {
+        width: 600px;
+        height: 170px;
+    }
+
+
+#foto {
+    width: 364px;
+    height: 76px;
+}
+
+    #foto input {
+        padding: 3px
+    }
+
+#botones a{
+    margin-left: 15px;
+}
+   

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #EFEFEF;
+}
+
+
+
+h1 {
+    
+}
+
+#graduate-form {
+    padding: 19px 25px;
+    width: 124%;
+    min-height: 80vh;
+    box-shadow: 0px 0px 0px grey;
+    margin-left: -98px;
+    margin-top: 103px;
+    background: white;
+}
+
+
+    #graduate-form #plus {
+        width: 79px;
+        height: 36px;
+        margin-top: -17px;
+    }
+
+.form1 {
+    float: right;
+    width: 455px;
+    height: 45px;
+    margin-right: -4px;
+    margin-top: -54px;
+}
+
+    .form1 p input[type="text"] {
+        width: 70%;
+        height: 26px;
+        border-radius: 2px;
+        background: rgb(245, 245, 245);
+        box-shadow: 1px 1px 4px grey;
+        outline: none;
+        border: none;
+        border-color: gray;
+    }
+
+        .form1 p input[type="text"]:focus {
+            box-shadow: 1px 1px 4px grey;
+            background: white;
+        }
+
+    .form1 p input[type="submit"] {
+        margin-left: 5px;
+    }
+
+
+/*perfil de estudiante destacado*/
+
+
+#contenedor-graduate {
+    width: 76%;
+    min-height: 48vh;
+    margin-left: 126px;
+    margin-top: 26px;
+    border-radius: 0px;
+    box-shadow: 0px 1px 3px grey;
+}
+
+    #contenedor-graduate .imgarticulo {
+        width: 28%;
+        height: 46vh;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+
+    #contenedor-graduate h3 {
+        display: inline-block;
+        position: absolute;
+        font-size: 25px;
+        font-weight: 700;
+        width: 37%;
+        height: 51px;
+        margin-top: 22px;
+        margin-left: 30px;
+        border-bottom: 1px solid #ccc;
+    }
+
+
+    #contenedor-graduate pre {
+        display: inline-block;
+        position: absolute;
+        font-size: 16px;
+        width: 37%;
+        margin-top: 84px;
+        margin-left: 33px;
+        height: 28vh;
+        background: rgba(247, 247, 247, 0.952);
+        font-family: 'Shippori Mincho', serif;
+    }
+
+    #contenedor-graduate h4 {
+        display: inline-block;
+        position: absolute;
+        color: #2c16f0;
+        padding: 5px;
+        font-size: 15px;
+        margin-top: 50px;
+        margin-left: 27px;
+    }
+
+
+    #contenedor-graduate a {
+        float: right;
+        position: initial;
+        width: 71px;
+        height: 33px;
+        margin-top: 321px;
+        margin-right: 10px;
+    }
+
+        #contenedor-graduate a i {
+            width: 10px;
+            height: 10px;
+            margin-top: -5px;
+            margin-right: 12px;
+            font-size: 25px;
+            color: white;
+        }
+
+#paginacion {
+    position: absolute;
+    width: 11%;
+    height: 46px;
+    margin-top: 1px;
+    margin-left: 1128px;
+}
+
+#listado {
+    position: absolute;
+    width: 13%;
+    height: 36px;
+    float: left;
+    margin-top: -53px;
+    margin-left: -791px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 5px 0px;
+}
+
+
+    #listado a {
+        text-decoration: none;
+        display: block;
+    }
+
+.navigation {
+    position: fixed;
+    margin-top: -7px;
+    width: 60px;
+    height: 100vh;
+}

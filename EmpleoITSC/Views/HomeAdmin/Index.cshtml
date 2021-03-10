@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/InicioAdm.css">
+</head>
+
+
+<body>
+   
+    <section class="banner" id="banner">
+        <div class="content">
+            <h2>Bienvienido a la Administración</h2>
+            <p>
+                Mision es de orientar la formación de profesionales, del nivel técnico superior, con las competencias necesarias para responder con eficiencia y calidad a las necesidades del país.
+            </p>
+            <a asp-area="" asp-controller="Job" asp-action="Index" class="btn">Publicar Vacante</a>
+        </div>
+    </section>
+
+
+    <section id="presentacion">
+        <img class="presentacion" src="~/img/banner-presentacion.png">
+        <img class="presentacion2" src="~/img/banner-presentacion2.png">
+    </section>
+
+    
+</body>
+</html>

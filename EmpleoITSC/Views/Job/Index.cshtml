@@ -1,0 +1,79 @@
+﻿@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script data-search-pseudo-elements defer src="https://use.fontawesome.com/releases/latest/js/all.js" integrity="sha384-L469/ELG4Bg9sDQbl0hvjMq8pOcqFgkSpwhwnslzvVVGpDjYJ6wJJyYjvG3u8XW7" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/StyleAdm/JobStyles/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300:400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+
+
+    <section id="form">
+        <h1 id="title">Vacantes</h1>
+        <br />
+        <p>
+            <a id="plus" class="btn btn-primary" asp-action="Create"><i class="fas fa-user-plus"></i></a>
+        </p>
+
+        <form class="form1" asp-action="Index" method="get">
+            <p>
+                <input type="text" name="word" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+                <div id="listado">
+                    <a asp-action="Index">Vacantes</a>
+                </div>
+            </p>
+        </form>
+
+
+        @foreach (var item in Model.Jobs)
+        {
+
+            <div id="contenedor">
+
+                <div class="perfil">
+
+                    <img src="~/img/work.png" class="foto-perfil">
+
+                    <h4>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </h4>
+
+                    <div class="datos">
+                        <h4 id="sub">TIPO DE EMPLEO:</h4><h3>@Html.DisplayFor(modelItem => item.contractJob)</h3>
+                        <h4  id="sub">FECHA:</h4><h3>@Html.DisplayFor(modelItem => item.dateStart)</h3>
+                    </div>
+
+
+                    @*<a href="@Url.Action("Delete","User",new { id = item.userId})"> <i class="fas fa-trash-alt"></i></a>*@
+                    <a class="btn btn-danger" href="@Url.Action("ViewInfoDelete","Job", new { id = item.jobId })"><i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-info" href="@Url.Action("ViewInfoEdit", "Job", new { id = item.jobId })"><i class="fas fa-pen-square"></i></a>
+                    <a class="btn btn-primary" href="@Url.Action("Detail", "Job" , new { id = item.jobId })"><i class="fas fa-calendar-day"></i></a>
+                </div>
+            </div>
+        }
+    </section>
+
+    <div id="paginacion">
+        <p>
+            @{Html.RenderPartial("_paginador", Model);}
+        </p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #EFEFEF;
+}
+
+
+
+h1 {
+    
+}
+
+#form {
+    padding: 19px 25px;
+    width: 124%;
+    min-height: 80vh;
+    box-shadow: 0px 0px 0px grey;
+    margin-left: -98px;
+    margin-top: 103px;
+    background: white;
+}
+
+
+    #form #plus {
+        width: 79px;
+        height: 36px;
+        margin-top: -17px;
+    }
+
+.form1 {
+    float: right;
+    width: 455px;
+    height: 45px;
+    margin-right: -4px;
+    margin-top: -54px;
+}
+
+    .form1 p input[type="text"] {
+        width: 70%;
+        height: 26px;
+        border-radius: 2px;
+        background: rgb(245, 245, 245);
+        box-shadow: 1px 1px 4px grey;
+        outline: none;
+        border: none;
+        border-color: gray;
+    }
+
+    .form1 p input[type="text"]:focus {
+        box-shadow: 1px 1px 4px grey;
+        background: white;
+    }
+
+    .form1 p input[type="submit"] {
+        margin-left:5px;
+    }
+
+
+    /*perfil de user*/
+
+#contenedor {
+    width: 76%;
+    min-height: 17vh;
+    margin-left: 126px;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+
+    #contenedor .perfil {
+        padding: 11px 27px;
+        width: 100%;
+        height: 130px;
+    }
+
+        #contenedor #cv {
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 80px;
+            float: right;
+            width: 50px;
+            height: 32px;
+        }
+
+
+            #contenedor #cv i {
+                width: 10px;
+                height: 10px;
+                margin-top: -5px;
+                margin-right: 12px;
+                font-size: 25px;
+                color: white;
+            }
+
+        #contenedor .perfil .foto-perfil {
+            width: 77px;
+            height: 77px;
+            margin-top: 14px;
+        }
+        
+
+        #contenedor .perfil h4 {
+            display: inline-block;
+            font-size:25px;
+            font-weight:700;
+        }
+    #contenedor .perfil .datos {
+        position: absolute;
+        width: 40%;
+        height: 27px;
+        margin-left: 94px;
+        margin-top: -20px;
+    }
+        #contenedor .perfil h3 {
+            display: inline-block;
+            color: #2c16f0;
+            padding: 5px;
+            font-size: 15px;
+           
+        }
+
+        #contenedor .perfil a {
+            display: inline-block;
+            margin-left: 5px;
+            margin-top: 80px;
+            float: right;
+            width: 50px;
+            height: 32px;
+        }
+
+       #contenedor .perfil a i {
+                width: 10px;
+                height: 10px;
+                margin-top: -5px;
+                margin-right: 12px;
+                font-size: 25px;
+                color: white;
+       }
+
+#paginacion {
+    position: absolute;
+    width: 11%;
+    height: 46px;
+    margin-top: 1px;
+    margin-left: 1128px;
+}
+
+#listado {
+    position: absolute;
+    width: 6%;
+    height: 38px;
+    float: left;
+    margin-top: -54px;
+    margin-left: -791px;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+    #listado a {
+        text-decoration:none;
+        padding: 5px 9px;
+        display:block;
+    }
+
+.navigation {
+    position: fixed;
+    margin-top: -7px;
+    width: 60px;
+    height: 100vh;
+}

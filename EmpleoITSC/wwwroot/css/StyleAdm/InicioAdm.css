@@ -1,0 +1,78 @@
+﻿/*styles generales*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    width:100%;
+    height:100vh;
+    background:cover;
+}
+
+/*banner styles*/
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .banner .content {
+        max-width: 900px;
+        text-align: center;
+    }
+
+        .banner .content h2 {
+            font-size: 3em;
+            color: black;
+        }
+
+
+        .banner .content p {
+            font-size: 1em;
+            color: black;
+        }
+
+.btn {
+    font-size: 1em;
+    color: white;
+    background: #BF2026;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    box-shadow: 0 2px 2px gray;
+}
+
+    .btn:hover {
+        letter-spacing: 6px;
+        border-radius: 2px;
+        background: linear-gradient(to right, #BF2026, #ff0157);
+    }
+
+#presentacion{
+    width:100%;
+    height:20vh;
+}
+
+    #presentacion .presentacion {
+        display: flex;
+        transform: translate(167%, -44%);
+        width: 44%;
+    }
+
+    #presentacion .presentacion2 {
+        display: flex;
+        transform: translate(-23%, -146%);
+        width: 35%;
+    }

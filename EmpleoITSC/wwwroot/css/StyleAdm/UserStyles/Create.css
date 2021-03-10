@@ -1,0 +1,61 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #EFEFEF;
+}
+
+
+
+h1 {
+}
+
+#form-create {
+    padding: 19px 25px;
+    width: 124%;
+    width: 265%;
+    box-shadow: 0px 0px 0px grey;
+    margin-left: -239px;
+    margin-top: 103px;
+    background: white;
+}
+
+
+    #form-create #rol {
+        width: 46%;
+    }
+
+    #form-create #userName {
+        width: 310px;
+    }
+
+    #form-create #userPass {
+        width: 314px;
+        margin-left: 20px;
+    }
+
+    #form-create #name {
+        width: 310px;
+    }
+
+
+    #form-create #lastName {
+        width: 314px;
+        margin-left: 11px;
+    }
+
+    #form-create #lastName .control-label{
+        margin-left:10px !important;
+    }
+
+#btn-cancelar{
+    margin-left:10px;
+}
+
